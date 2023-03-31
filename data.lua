@@ -8,16 +8,22 @@ local function mirrorRecipe(baseName)
     mirroredRecipe.ingredients = Reverse(mirroredRecipe.ingredients)
     mirroredRecipe.results = Reverse(mirroredRecipe.results)
 
-    mirroredRecipe.name = "mirrored-recipe"
     mirroredRecipe.enabled = true
-    mirroredRecipe.localised_name = { "recipe-name.mirrored-recipe", { "recipe-name." .. baseName } }
+    mirroredRecipe.name = baseName .. "-mirrored"
+
+    if baseName == "sulfur" then
+        mirroredRecipe.localised_name = { "recipe-name.mirrored-recipe", { "item-name." .. baseName } }
+    else
+        mirroredRecipe.localised_name = { "recipe-name.mirrored-recipe", { "recipe-name." .. baseName } }
+    end
 
     return mirroredRecipe
 end
 
+local baseNames = { "sulfur", "advanced-oil-processing", "heavy-oil-cracking", "light-oil-cracking",
+    "basic-oil-processing", "coal-liquefaction" }
 
-local baseName = "advanced-oil-processing"
-
-local mirrored = mirrorRecipe(baseName)
-
-data:extend { mirrored }
+for _, baseName in ipairs(baseNames) do
+    local mirroredRecipe = mirrorRecipe(baseName)
+    data:extend { mirroredRecipe }
+end
