@@ -27,3 +27,6 @@ for _, baseName in ipairs(baseNames) do
     local mirroredRecipe = mirrorRecipe(baseName)
     data:extend { mirroredRecipe }
 end
+
+local shortcut = { key_sequence = "ALT + M", name = "mirror-entity", type = "custom-input" }
+data:extend { shortcut }
