@@ -10,10 +10,4 @@ script.on_event(defines.events.on_gui_opened, function(event)
     if not event then return end
     if not event.entity then return end
     if event.entity.name ~= "oil-refinery" then return end
-
-    local gui = event.element
-
-    game.print(dump(gui))
-
-    -- TODO:
 end)
