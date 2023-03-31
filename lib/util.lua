@@ -12,3 +12,13 @@ function Deepcopy(orig)
     end
     return copy
 end
+
+function Reverse(list)
+    local reversed = {}
+
+    for i = #list, 1, -1 do
+        reversed[#reversed + 1] = list[i]
+    end
+
+    return reversed
+end
