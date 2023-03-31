@@ -8,7 +8,7 @@ local function mirrorRecipe(baseName)
     mirroredRecipe.ingredients = Reverse(mirroredRecipe.ingredients)
     mirroredRecipe.results = Reverse(mirroredRecipe.results)
 
-    mirroredRecipe.enabled = true
+    mirroredRecipe.enabled = false
     mirroredRecipe.name = baseName .. "-mirrored"
 
     if baseName == "sulfur" then
@@ -21,7 +21,7 @@ local function mirrorRecipe(baseName)
 end
 
 local baseNames = { "sulfur", "advanced-oil-processing", "heavy-oil-cracking", "light-oil-cracking",
-    "basic-oil-processing", "coal-liquefaction" }
+    "coal-liquefaction" }
 
 for _, baseName in ipairs(baseNames) do
     local mirroredRecipe = mirrorRecipe(baseName)
