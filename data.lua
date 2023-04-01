@@ -1,4 +1,5 @@
 require("lib.util")
+require("lib.globals")
 local dump = require("lib.inspect")
 
 local function mirrorRecipe(baseName)
@@ -20,10 +21,9 @@ local function mirrorRecipe(baseName)
     return mirroredRecipe
 end
 
-local baseNames = { "sulfur", "advanced-oil-processing", "heavy-oil-cracking", "light-oil-cracking",
-    "coal-liquefaction" }
 
-for _, baseName in ipairs(baseNames) do
+
+for _, baseName in ipairs(BaseNames) do
     local mirroredRecipe = mirrorRecipe(baseName)
     data:extend { mirroredRecipe }
 end

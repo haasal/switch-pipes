@@ -22,3 +22,13 @@ function Reverse(list)
 
     return reversed
 end
+
+function Contains(table, item)
+    for _, value in ipairs(table) do
+        if value == item then
+            return true
+        end
+    end
+
+    return false
+end
